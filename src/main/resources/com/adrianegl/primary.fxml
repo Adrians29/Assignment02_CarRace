@@ -4,73 +4,117 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1100.0" style="-fx-background-color: #F3F6FA;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adrianegl.PrimaryController">
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
-   <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+   <top>
+      <VBox fx:id="headerBox" spacing="5.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER_LEFT">
+         <padding>
+            <Insets bottom="12.0" left="15.0" right="15.0" top="12.0" />
+         </padding>
          <children>
-            <VBox prefHeight="100.0" prefWidth="285.0">
+            <Label fx:id="titleLabel" text="CAR RACING SIMULATOR" textFill="#1e293b">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="subtitleLabel" text="Configure your vehicles and start the race" textFill="#64748b">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Button mnemonicParsing="false" text="Start">
-                           <HBox.margin>
-                              <Insets bottom="8.0" left="15.0" right="8.0" top="8.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" text="Pause">
-                           <HBox.margin>
-                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" text="Reset">
-                           <HBox.margin>
-                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="272.0">
-                     <children>
-                        <Slider prefHeight="14.0" prefWidth="226.0">
-                           <HBox.margin>
-                              <Insets left="10.0" top="10.0" />
-                           </HBox.margin>
-                        </Slider>
-                        <TextField prefHeight="28.0" prefWidth="24.0" />
-                     </children>
-                  </HBox>
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStart" styleClass="start-button" text="Start" />
+                  <Button fx:id="pauseButton" mnemonicParsing="false" onAction="#handlePause" styleClass="pause-button" text="Pause" />
+                  <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleReset" styleClass="reset-button" text="Reset" />
+                  <Label fx:id="statusLabel" styleClass="status-label" text="Ready to race">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
-            </VBox>
-            <VBox prefHeight="100.0" prefWidth="315.0">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="136.0" text="Some label for score" />
-               </children>
-            </VBox>
+            </HBox>
          </children>
-      </HBox>
-   </bottom>
-   <left>
-      <Label alignment="CENTER" prefHeight="200.0" prefWidth="25.0" style="-fx-background-color: GREEN; -fx-text-fill: WHITE; -fx-font-weight: BOLD;" text="S&#10;T&#10;A&#10;R&#10;T&#10;I&#10;N&#10;G" textAlignment="CENTER" textOverrun="CLIP" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets left="10.0" />
-         </BorderPane.margin>
-      </Label>
-   </left>
-   <right>
-      <Label alignment="CENTER" prefHeight="200.0" prefWidth="25.0" style="-fx-background-color: GREEN; -fx-text-fill: WHITE; -fx-font-weight: BOLD;" text="A&#10;R&#10;R&#10;I&#10;V&#10;A&#10;L" textAlignment="CENTER" textOverrun="CLIP" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets right="10.0" />
-         </BorderPane.margin>
-      </Label>
-   </right>
+      </VBox>
+   </top>
+
    <center>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d9195" height="200.0" stroke="BLACK" strokeType="INSIDE" width="520.0" BorderPane.alignment="CENTER" />
+      <VBox alignment="TOP_CENTER" spacing="8.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <children>
+            <HBox fx:id="trackContainer" alignment="CENTER" maxHeight="280.0" minHeight="280.0" prefHeight="280.0">
+               <children>
+                  <Rectangle fx:id="startZone" arcHeight="5.0" arcWidth="5.0" fill="#15803d" height="280.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+                  <Pane fx:id="roadPane" maxHeight="280.0" minHeight="280.0" prefHeight="280.0" prefWidth="900.0" style="-fx-background-color: #454B54;" />
+                  <Rectangle fx:id="finishZone" arcHeight="5.0" arcWidth="5.0" fill="#15803d" height="280.0" stroke="BLACK" strokeType="INSIDE" width="45.0" />
+               </children>
+            </HBox>
+
+            <Pane fx:id="miniMapPane" maxHeight="60.0" maxWidth="990.0" minHeight="60.0" minWidth="990.0" prefHeight="60.0" prefWidth="990.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8;" />
+         </children>
+      </VBox>
    </center>
+
+   <bottom>
+      <VBox fx:id="vehiclePanel" spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="30.0">
+               <children>
+                  <VBox spacing="6.0">
+                     <children>
+                        <Label fx:id="vehicleTitleLabel" styleClass="section-title" text="VEHICLE CONFIGURATION" />
+                        <HBox spacing="10.0">
+                           <children>
+                              <Button fx:id="addCarButton" mnemonicParsing="false" onAction="#handleAddCar" styleClass="add-button" text="Add Car" />
+                              <Button fx:id="removeCarButton" mnemonicParsing="false" onAction="#handleRemoveCar" styleClass="remove-button" text="Remove Car" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+                  <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="distanceLabel" text="RACE DISTANCE" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Slider fx:id="distanceSlider" majorTickUnit="500.0" max="2000.0" min="100.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" value="500.0" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="distanceValueLabel" minWidth="60.0" text="500 m" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+                  <VBox prefWidth="260.0" spacing="2.0">
+                     <children>
+                        <Label text="SIMULATION SPEED" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Slider fx:id="simulationSpeedSlider" max="2.0" min="0.25" value="1.0" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="simulationSpeedValueLabel" minWidth="40.0" text="1.0x" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <Label text="CAR SPEED" />
+
+            <VBox fx:id="carControlsContainer" spacing="6.0" />
+         </children>
+      </VBox>
+   </bottom>
+
 </BorderPane>
