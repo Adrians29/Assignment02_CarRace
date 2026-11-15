@@ -32,5 +32,25 @@ public class Car {
         
         this.distanceTravelled = 0;
         this.finished = false;
+        
+        //create a general rectangle to represent the car
+        body = new Rectangle(55, 27);
+
+        body.setArcWidth(10);
+        body.setArcHeight(10);
+        body.setFill(color);
+
+        body.setStroke(Color.WHITE);
+        body.setStrokeWidth(1.5);
+        
+        //number to identifiy the car
+        numberLabel = new Label(String.valueOf(id));
+        numberLabel.setTextFill(Color.WHITE);
+        numberLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 12px;");
+        
+        view = new StackPane(body, numberLabel);
+        view.setPrefSize(55, 27);
+        view.setMinSize(55, 27);
+        view.setMaxSize(55, 27);
     }
 }
