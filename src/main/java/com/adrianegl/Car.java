@@ -79,6 +79,21 @@ public class Car {
     public Color getColor() {
         return color;
     }
+
+    //the setters
+    
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public void setDistanceTravelled(double distanceTravelled) {
+        this.distanceTravelled = distanceTravelled;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+    
     
     
 }
