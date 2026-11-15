@@ -19,7 +19,7 @@ import javafx.scene.shape.Rectangle;
 
 
 public class RaceManager {
-    private final Pane roadPane
+    private final Pane roadPane;
     private Pane miniMapPane;
 
     private final List<Car> cars = new ArrayList<>();
@@ -46,5 +46,9 @@ public class RaceManager {
     private final double startPosition = 10;
     private final double segmentWidth = 35;
     private final double segmentGap = 25;
+    
+    public RaceManager(Pane roadPane) {
+        
+    }
 
 }
