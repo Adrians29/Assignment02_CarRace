@@ -94,6 +94,12 @@ public class Car {
         this.finished = finished;
     }
     
+    public void reset() {
+        distanceTravelled = 0;
+        finished = false;
+        view.setLayoutX(10);
+    }
+    
     //the progress on the race
     public double getProgress(double totalDistance) {
         if (totalDistance <= 0) {
