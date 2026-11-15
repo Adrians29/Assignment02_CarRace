@@ -96,7 +96,10 @@ public class Car {
     
     //the progress on the race
     public double getProgress(double totalDistance) {
-        
+        if (totalDistance <= 0) {
+            return 0;
+        }
+        return Math.min(100, (distanceTravelled / totalDistance) * 100);
     }
     
 }
