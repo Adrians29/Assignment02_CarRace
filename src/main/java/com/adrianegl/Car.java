@@ -53,4 +53,32 @@ public class Car {
         view.setMinSize(55, 27);
         view.setMaxSize(55, 27);
     }
+    
+    //the getters
+
+    public int getId() {
+        return id;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public double getDistanceTravelled() {
+        return distanceTravelled;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public StackPane getView() {
+        return view;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+    
+    
 }
