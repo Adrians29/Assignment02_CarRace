@@ -94,6 +94,9 @@ public class Car {
         this.finished = finished;
     }
     
-    
+    //the progress on the race
+    public double getProgress(double totalDistance) {
+        
+    }
     
 }
