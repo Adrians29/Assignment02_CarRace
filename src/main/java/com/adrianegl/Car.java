@@ -24,4 +24,13 @@ public class Car {
 
     private Rectangle body;
     private Label numberLabel;
+    
+    public Car(int id, double speed, Color color){
+        this.id = id;
+        this.speed = speed;
+        this.color = color;
+        
+        this.distanceTravelled = 0;
+        this.finished = false;
+    }
 }
