@@ -4,10 +4,24 @@
  */
 package com.adrianegl;
 
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
 /**
  *
  * @author adria
  */
 public class Car {
+    private int id;
+    private double speed;
+    private double distanceTravelled;
+    private boolean finished;
     
+    private final StackPane view;
+    private final Color color;
+
+    private Rectangle body;
+    private Label numberLabel;
 }
