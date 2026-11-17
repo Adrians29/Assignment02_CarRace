@@ -55,9 +55,16 @@ public class RaceManager {
         
         initializeAnimation();
         
-        
+        roadPane.widthProperty().addListener((obs, o, n) -> rebuildRoad());
+        roadPane.heightProperty().addListener((obs, o, n) -> rebuildRoad());
     }   
     
+    
     private void initalizeAnimation() {
+    
+    }
+    public void rebuildRoad() {
+        
+    }
 
 }
