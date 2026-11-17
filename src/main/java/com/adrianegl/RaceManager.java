@@ -48,7 +48,16 @@ public class RaceManager {
     private final double segmentGap = 25;
     
     public RaceManager(Pane roadPane) {
+        Rectangle clip = new Rectangle();
+        clip.widthProperty().bind(roadPane.widthProperty());
+        clip.heightProperty().bind(roadPane.heightProperty());
+        roadPane.setClip(clip);
         
-    }
+        initializeAnimation();
+        
+        
+    }   
+    
+    private void initalizeAnimation() {
 
 }
