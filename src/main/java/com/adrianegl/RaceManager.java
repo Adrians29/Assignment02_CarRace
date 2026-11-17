@@ -59,11 +59,20 @@ public class RaceManager {
         roadPane.heightProperty().addListener((obs, o, n) -> rebuildRoad());
     }   
     
+    public void setMiniMapPane(Pane pane) {
+        this.miniMapPane = pane;
+        pane.widthProperty().addListener((obs, o, n) -> rebuildRoad());
+        rebuildMiniMap();
+    }
     
     private void initalizeAnimation() {
     
     }
     public void rebuildRoad() {
+        
+    }
+    
+    public void rebuildMiniMap() {
         
     }
 
