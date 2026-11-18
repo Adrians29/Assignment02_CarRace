@@ -21,7 +21,6 @@
          </font>
       </Label>
 
-      <!-- Carretera con 4 carriles -->
       <VBox fx:id="roadBox" maxHeight="360.0" maxWidth="800.0" minHeight="360.0" minWidth="800.0" prefHeight="360.0" prefWidth="800.0" style="-fx-background-color: #454B54;">
          <VBox.margin>
             <Insets bottom="5.0" top="15.0" />
@@ -82,7 +81,6 @@
          </children>
       </VBox>
 
-      <!-- Barra de progreso -->
       <VBox alignment="CENTER" spacing="8.0">
          <children>
             <ProgressBar fx:id="progressBar" prefHeight="14.0" prefWidth="800.0" progress="0.0" style="-fx-accent: #22C55E;" />
