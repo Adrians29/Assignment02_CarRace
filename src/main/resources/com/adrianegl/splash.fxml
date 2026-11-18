@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="rootBox" alignment="CENTER" prefHeight="750.0" prefWidth="1100.0" spacing="18.0" style="-fx-background-color: linear-gradient(to bottom, #0F172A, #1E293B);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adrianegl.SplashController">
+   <children>
+      <Label text="CAR RACING SIMULATOR" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label text="Warming up the engines..." textFill="#94a3b8">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+
+      <!-- Carretera con 4 carriles -->
+      <VBox fx:id="roadBox" maxHeight="360.0" maxWidth="800.0" minHeight="360.0" minWidth="800.0" prefHeight="360.0" prefWidth="800.0" style="-fx-background-color: #454B54;">
+         <VBox.margin>
+            <Insets bottom="5.0" top="15.0" />
+         </VBox.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="90.0" minHeight="90.0" prefHeight="90.0" spacing="15.0" style="-fx-border-color: transparent transparent #FFFFFF transparent; -fx-border-width: 0 0 3 0; -fx-border-style: dashed;">
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <children>
+                  <Label minWidth="90.0" text="CAR 1" textFill="DODGERBLUE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="car1View" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="90.0" minHeight="90.0" prefHeight="90.0" spacing="15.0" style="-fx-border-color: transparent transparent #FFFFFF transparent; -fx-border-width: 0 0 3 0; -fx-border-style: dashed;">
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <children>
+                  <Label minWidth="90.0" text="CAR 2" textFill="CRIMSON">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="car2View" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="90.0" minHeight="90.0" prefHeight="90.0" spacing="15.0" style="-fx-border-color: transparent transparent #FFFFFF transparent; -fx-border-width: 0 0 3 0; -fx-border-style: dashed;">
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <children>
+                  <Label minWidth="90.0" text="CAR 3" textFill="LIMEGREEN">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="car3View" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="90.0" minHeight="90.0" prefHeight="90.0" spacing="15.0">
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <children>
+                  <Label minWidth="90.0" text="CAR 4" textFill="ORANGE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="car4View" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+
+      <!-- Barra de progreso -->
+      <VBox alignment="CENTER" spacing="8.0">
+         <children>
+            <ProgressBar fx:id="progressBar" prefHeight="14.0" prefWidth="800.0" progress="0.0" style="-fx-accent: #22C55E;" />
+            <Label fx:id="percentLabel" text="Loading... 0%" textFill="#cbd5e1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</VBox>
