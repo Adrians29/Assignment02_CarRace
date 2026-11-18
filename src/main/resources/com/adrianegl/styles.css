@@ -1,0 +1,78 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 nov 2026, 9:59:59 p.m.
+    Author     : adria
+*/
+
+
+.root {
+    -fx-background-color: #F3F6FA;
+    -fx-font-family: "Arial";
+}
+
+.title-label {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E293B;
+}
+
+.subtitle-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748B;
+}
+
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E293B;
+}
+
+.road-pane {
+    -fx-background-color: #454B54;
+    -fx-background-radius: 5px;
+}
+
+.status-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2563EB;
+}
+
+.button {
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 6px;
+    -fx-padding: 9px 16px;
+}
+
+.start-button {
+    -fx-background-color: #15803D;
+    -fx-text-fill: white;
+}
+
+.pause-button {
+    -fx-background-color: #2563EB;
+    -fx-text-fill: white;
+}
+
+.reset-button {
+    -fx-background-color: #DC2626;
+    -fx-text-fill: white;
+}
+
+.add-button {
+    -fx-background-color: #15803D;
+    -fx-text-fill: white;
+}
+
+.remove-button {
+    -fx-background-color: #DC2626;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-opacity: 0.85;
+}
