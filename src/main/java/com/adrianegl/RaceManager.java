@@ -88,6 +88,12 @@ public class RaceManager {
         simulationSpeed = Math.max(0, speed);
     }
     
+    public boolean isRunning() {
+        return running;
+    }
+    
+    
+    
     private void initalizeAnimation() {
     
     }
