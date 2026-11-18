@@ -93,10 +93,100 @@ public class RaceManager {
     }
     
     
-    
-    private void initalizeAnimation() {
-    
+    private void initializeAnimation() {
+        animationTimer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                if (lastUpdate == 0) {
+                    lastUpdate = now;
+                    return;
+                }
+                double deltaTime = (now - lastUpdate) / 1_000_000_000.0;
+                lastUpdate = now;
+                deltaTime = Math.min(deltaTime, 0.1);
+                
+                if (!running) {
+                    return;
+                }
+                double adjustedTime = deltaTime * simulationSpeed;
+                updateCars(adjustedTime);
+                updateRoadLines(adjustedTime);
+            }
+        };
+                
     }
+    
+    public void start() {
+        if (running || cars.isEmpty()) {
+            return;
+        }
+        boolean allFinished = cars.stream().allMatch(Car::isFinished);
+        if (allFinished) {
+            return;
+        }
+        running = true;
+        lastUpdate = 0;
+        animationTimer.start();
+    }
+    
+    public void pause() {
+        running = false;
+        if (animationTimer != null) {
+            animationTimer.stop();
+        }
+        lastUpdate = 0;
+    }
+    
+    public void reset() {
+        pause();
+        roadOffset = 0;
+        finishOrder.clear();
+        for (Car car : cars) {
+            car.reset();
+        }
+        rebuildRoad();
+        rebuildMiniMap();
+    }
+
+    private void updateCars(double deltaTime) {
+        boolean allFinished = true;
+        double availableWidth = Math.max(1, roadPane.getWidth() - carWidth - startPosition);
+
+        for (Car car : cars) {
+            if (car.isFinished()) {
+                continue;
+            }
+
+            double speedMS = car.getSpeed() / 3.6; // km/h -> m/s
+            double newDistance = Math.min(
+                    car.getDistanceTravelled() + speedMS * deltaTime,
+                    totalDistance);
+            car.setDistanceTravelled(newDistance);
+
+            double progress = newDistance / totalDistance;
+            car.getView().setLayoutX(startPosition + progress * availableWidth);
+
+            if (newDistance >= totalDistance) {
+                car.setFinished(true);
+                finishOrder.add(car); // guarda el orden de llegada
+            } else {
+                allFinished = false;
+            }
+        }
+
+        updateMiniMap();
+
+        if (allFinished && !cars.isEmpty()) {
+            pause();
+            if (onRaceFinished != null) {
+                onRaceFinished.accept(new ArrayList<>(finishOrder));
+            }
+        }
+    }
+
+
+
+    
     public void rebuildRoad() {
         
     }
