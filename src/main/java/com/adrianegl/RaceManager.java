@@ -65,6 +65,29 @@ public class RaceManager {
         rebuildMiniMap();
     }
     
+    public void setOnRaceFinished(Consumer<List<Car>> callback) {
+        this.onRaceFinished = callback;
+    }
+    
+    public void setCars(List<Car> newCars) {
+        cars.clear();
+        cars.addAll(newCars);
+        finishOrder.clear();
+        rebuildRoad();
+        rebuildMiniMap();
+    }
+    
+    public void setTotalDistance(double distance) {
+        if (distance > 0) {
+            totalDistance = distance;
+            rebuildMiniMap();
+        }
+    }
+    
+    public void setSimulationSpeed(double speed) {
+        simulationSpeed = Math.max(0, speed);
+    }
+    
     private void initalizeAnimation() {
     
     }
