@@ -111,7 +111,6 @@ public class PrimaryController {
         }
         cars.remove(cars.size() - 1);
 
-        // Quita la última fila de controles
         int last = carControlsContainer.getChildren().size() - 1;
         carControlsContainer.getChildren().remove(last);
 
